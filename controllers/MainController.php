@@ -1,6 +1,6 @@
 <?php
 
-class Main extends ControllerBase {
+class MainController extends ControllerBase {
 
     public function __construct(){
         parent::__construct();

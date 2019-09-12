@@ -1,6 +1,6 @@
 <?php
 
-require_once 'controllers/Error.php';
+require_once 'controllers/ErrorController.php';
 
 class App {
 
@@ -12,23 +12,31 @@ class App {
         // var_dump($url);
 
         if (empty($url[0])){
-            $archivoController = 'controllers/main.php';
+            $archivoController = 'controllers/mainController.php';
             require_once $archivoController;
-            $controller = new Main();
+            $controller = new MainController();
             $controller->index();
             return false;
         }
 
-        $archivoController = 'controllers/'. $url[0] .'.php';
+        $archivoController = 'controllers/'. $url[0] .'Controller.php';
 
         if(file_exists($archivoController)){
             require_once $archivoController;
-            $controller = new $url[0];
+            $controllerName = $url[0].'Controller';
+            $controller = new $controllerName();
 
             if (isset($url[1])){
                 $controller->{$url[1]}();
+            } else{
+                if (method_exists($controller, 'index')){
+                    $controller->index();
+                } else {
+                    $controller = new ErrorController();
+                }
             }
-        }else{
+
+        } else{
             $controller = new ErrorController();
         }
 

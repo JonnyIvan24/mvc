@@ -12,7 +12,7 @@
 <div class="container">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="./">Inicio</a>
+    <a class="navbar-brand" href="<?php echo constant('URL'); ?>">Inicio</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,8 +23,8 @@
                 Usuarios
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="./usuarios">Consultar</a>
-                    <a class="dropdown-item" href="./usuarios/crear">Agregar</a>
+                    <a class="dropdown-item" href="<?php echo constant('URL'); ?>usuarios">Consultar</a>
+                    <a class="dropdown-item" href="<?php echo constant('URL'); ?>usuarios/crear">Agregar</a>
                 </div>
             </li>
         </ul>

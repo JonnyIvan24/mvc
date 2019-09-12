@@ -1,9 +1,10 @@
 <?php
 
-class Usuarios extends ControllerBase {
+class UsuariosController extends ControllerBase {
 
     public function __construct(){
         parent::__construct();
+        $this->loadModel('usuarios');
     }
 
     public function index(){
@@ -12,6 +13,10 @@ class Usuarios extends ControllerBase {
 
     public function crear(){
         return $this->view->render('usuarios/crear');
+    }
+
+    public function store(){
+        $this->model->insert();
     }
 
 }
