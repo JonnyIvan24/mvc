@@ -1,16 +1,24 @@
 <?php
 
-require_once 'controllers/error.php';
+require_once 'controllers/Error.php';
 
 class App {
 
     function __construct(){
-        echo '<p>Nueva app</p>';
-        $url = $_GET['url'];
+
+        $url = isset($_GET['url']) ? $_GET['url']: null;
         $url = rtrim($url, '/');
         $url = explode('/', $url);
-        
         // var_dump($url);
+
+        if (empty($url[0])){
+            $archivoController = 'controllers/main.php';
+            require_once $archivoController;
+            $controller = new Main();
+            $controller->index();
+            return false;
+        }
+
         $archivoController = 'controllers/'. $url[0] .'.php';
 
         if(file_exists($archivoController)){
