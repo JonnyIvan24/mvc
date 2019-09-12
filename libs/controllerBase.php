@@ -14,7 +14,6 @@ class ControllerBase {
 
         if(file_exists($url)){
             require $url;
-            // $modelName = $model;
             $this->model = new $model();
         }
     }

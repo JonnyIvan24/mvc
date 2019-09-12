@@ -3,7 +3,7 @@
 class ModelBase {
 
     public function __construct(){
-        $this->database = new DataBase();
+        $this->db = new DataBase();
     }
 }
 

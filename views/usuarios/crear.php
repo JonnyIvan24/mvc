@@ -9,7 +9,7 @@
             <form action="<?php echo constant('URL'); ?>usuarios/store" method="POST">
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="email" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre...">
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre...">
                 </div>
                 <div class="form-group">
                     <label for="correo">E-mail</label>
