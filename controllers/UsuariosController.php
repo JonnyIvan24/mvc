@@ -77,8 +77,8 @@ class UsuariosController extends ControllerBase {
         exit();
     }
 
-    public function delete($params = null){
-        $id = $params[0];
+    public function delete($param = null){
+        $id = $param;
 
         $flag = $this->model->delete($id);
         

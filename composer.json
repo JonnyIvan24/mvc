@@ -1,0 +1,12 @@
+{
+    "name": "jonny/mvc",
+    "authors": [
+        {
+            "name": "Jonathan Perez (Johnny)",
+            "email": "jonny.perez.u@gmail.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "~1.4"
+    }
+}

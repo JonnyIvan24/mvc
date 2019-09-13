@@ -10,7 +10,7 @@
 <body>
 <br><br>
 <div class="container">
-    <h1 class="text-danger"><?php echo $this->mensaje; ?></h1>
+    <h1 class="text-danger">Error 404: la url no existe.</h1>
 </div>
 </body>
 </html>
