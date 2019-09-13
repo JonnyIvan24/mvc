@@ -19,18 +19,18 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Agregar usuario</h5>    
-            <form action="<?php echo constant('URL'); ?>usuarios/store" method="POST">
+            <form action="<?php echo constant('URL'); ?>usuarios/update/<?php echo $this->user->id; ?>" method="POST">
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre...">
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa el nombre..." value="<?php echo $this->user->nombre; ?>">
                 </div>
                 <div class="form-group">
                     <label for="correo">E-mail</label>
-                    <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingresa tu e-mail...">
+                    <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingresa el e-mail..." value="<?php echo $this->user->correo; ?>">
                 </div>
                 <div class="form-group">
                     <label for="pass">Contraseña</label>
-                    <input type="password" class="form-control" id="pass" name="password" placeholder="Ingresa tu contraseña...">
+                    <input type="password" class="form-control" id="pass" name="password" placeholder="Ingresa la contraseña...">
                 </div>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
