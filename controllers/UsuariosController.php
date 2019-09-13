@@ -21,6 +21,12 @@ class UsuariosController extends ControllerBase {
 
     public function store(){
         
+        
+        if($this->verify()){
+            $this->view->mensaje = array("texto" => "El nombre, correo y password son obligatorios, verifique sus datos.", "tipo" => "danger");
+            return $this->view->render('usuarios/crear');
+        }
+        
         $request = [
             'nombre' => $_POST['nombre'],
             'correo' => $_POST['correo'],
@@ -29,7 +35,7 @@ class UsuariosController extends ControllerBase {
 
         $this->model->save($request);
 
-        $this->view->mensaje = array("texto" => "Usuario agregado", "tipo" => "success");
+        $this->view->mensaje = array("texto" => "Usuario agregado.", "tipo" => "success");
         header('Location: '.constant('URL').'usuarios');
         exit();
     }
@@ -53,6 +59,11 @@ class UsuariosController extends ControllerBase {
     public function update($params = null){
         $id = $params[0];
 
+        if($this->verifyUpdate($id)){
+            $this->view->mensaje = array("texto" => "No se pudo actulizar el usuario, verifique sus datos.", "tipo" => "danger");
+            return $this->editar([$id]);
+        }
+
         $request = [
             'id'        => $id,
             'nombre'    => $_POST['nombre'],
@@ -73,6 +84,16 @@ class UsuariosController extends ControllerBase {
         
         echo json_encode(array("delete" => $flag));
         exit();
+    }
+
+    private function verify()
+    {
+      return empty($_POST['nombre']) OR empty($_POST['correo']) OR empty($_POST['password']);
+    }
+
+    private function verifyUpdate($id)
+    {
+      return empty($_POST['nombre']) OR empty($_POST['correo']) OR empty($_POST['password']) OR empty($id);
     }
 
 }
